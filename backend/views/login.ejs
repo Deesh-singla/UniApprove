@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | UniApprove</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1 class="title">UniApprove</h1>
+        <p class="subtitle">Login to continue</p>
+
+        <form action="/auth/login" method="post" class="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" value="Deesh" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="deeshsingla@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="Deesh@123" required>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <% if (error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+        </form>
+
+        <footer>
+            <p>© 2025 UniApprove. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

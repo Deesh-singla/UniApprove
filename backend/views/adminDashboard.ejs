@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Admin Dashboard — <%= username %></h1>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </header>
+
+        <main class="main">
+            <aside class="navigation">
+                <h3>Navigation</h3>
+                <nav>
+                    <a href="#">Departments</a>
+                    <a href="#">Users</a>
+                    <a href="#">Add User</a>
+                </nav>
+            </aside>
+
+            <section class="overview">
+                <h3>Dashboard Overview</h3>
+                <div class="cards">
+                    <div class="card blue">
+                        <p>Total Departments</p>
+                        <h2 class="numOfDepartments">0</h2>
+                    </div>
+                    <div class="card green">
+                        <p>Total Students</p>
+                        <h2 class="numofStudents">0</h2>
+                    </div>
+                    <div class="card orange">
+                        <p>Total Professors</p>
+                        <h2 class="numOfProfessors">0</h2>
+                    </div>
+                    <div class="card purple">
+                        <p>Total HODs</p>
+                        <h2 class="numOfHODs">0</h2>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Admin Dashboard. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script type="module" src="/script/adminDashboard.js"></script>
+</body>
+
+</html>
