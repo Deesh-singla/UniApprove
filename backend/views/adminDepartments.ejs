@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+    <link rel="stylesheet" href="/css/adminDepartments.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Admin Dashboard — <%= username %>
+            </h1>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </header>
+
+        <main class="main">
+            <aside class="navigation">
+                <h3>Navigation</h3>
+                <nav>
+                    <a href="/admin/navigateDepartments">Departments</a>
+                    <a href="/admin/navigateUsers">Users</a>
+                    <a href="/admin/navigateAddUsers">Add User</a>
+                </nav>
+            </aside>
+
+            <section class="overview">
+                <div>
+                    <button id="add-department">Add Department</button>
+                </div>
+                <div id="department-form" class="hidden" style="visibility: hidden;">
+                    <div id="cross-btn">X</div>
+                    <form action="/department/addDepartment" method="post">
+                        <label for="name">Name of Department:</label>
+                        <input type="text" name="name" class="name" required>
+
+                        <label for="type">Select program type</label>
+                        <select name="type">
+                            <option value="UG">UG</option>
+                            <option value="PG">PG</option>
+                            <option value="Research">Research</option>
+                        </select>
+
+                        <label for="address">Address:</label>
+                        <input type="text" name="address" class="address" required>
+
+                        <button type="submit">Add department</button>
+                    </form>
+                </div>
+                <div>
+                    <% if (departments.length !==0) { %>
+                        <table border="1" cellpadding="10">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% departments.forEach(dep=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= dep.name %>
+                                        </td>
+                                        <td>
+                                            <%= dep.type %>
+                                        </td>
+                                        <td>
+                                            <%= dep.address %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                        <% } %>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Admin Dashboard. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+<script type="module" src="/script/adminDepartment.js"></script>
+
+</html>
