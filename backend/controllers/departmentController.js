@@ -2,10 +2,7 @@ import departmentModel from "../models/DepartmentModal.js";
 
 export const addDepartment = async (req, res) => {
     try {
-        console.log(req.body);
-
         const department = await departmentModel.create(req.body);
-
         res.redirect("/admin/navigateDepartments");
     } catch (error) {
         console.error("Error adding department:", error);
@@ -16,3 +13,30 @@ export const addDepartment = async (req, res) => {
         });
     }
 };
+
+export const deleteDepartment = async (req, res) => {
+    try {
+        const { id } = req.body;
+        const department = await departmentModel.deleteOne({ _id: id });
+        res.status(200).json({ message: "department deleted successfully", success: true });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: err });
+    }
+}
+
+export const editDepartment=async(req,res)=>{
+    try{
+        const department=await departmentModel.findById(req.body.id);
+        department.name=req.body.name;
+        department.type=req.body.type;
+        department.address=req.body.address;
+        department.save();
+        res.redirect("/admin/navigateDepartments");
+        // res.send(500);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({error:err});
+    }
+}

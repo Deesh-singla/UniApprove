@@ -3,7 +3,7 @@ import { JWT_SECRET } from "../config/env.js";
 
 export default function verifyToken(req, res, next) {
   const token = req.cookies.token;
-  if (!token) return res.redirect("/login");
+  if (!token) return res.redirect("/auth/login");
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);

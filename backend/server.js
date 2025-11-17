@@ -23,6 +23,8 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(express.json());
+
 
 app.get("/", (req, res) => {
     res.render("index");
@@ -33,7 +35,7 @@ app.use("/auth", authRouter);
 app.use("/dashboard", verifyToken, dashboardRouter);
 app.use("/admin", verifyToken, verifyAdmin, adminRouter);
 
-app.use("/department",verifyToken,departmentRouter)
+app.use("/department",verifyToken,verifyAdmin,departmentRouter)
 
 
 app.listen("3000", () => {

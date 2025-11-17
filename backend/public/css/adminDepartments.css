@@ -30,7 +30,7 @@
    POPUP FORM
    =============================== */
 
-#department-form {
+.department-form {
   position: absolute;
   top: 80px;
   left: 50%;
@@ -42,11 +42,10 @@
   border: 1px solid #ddd;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 100;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Close Button */
-#cross-btn {
+.cross-btn {
   position: absolute;
   top: 12px;
   right: 15px;
@@ -57,25 +56,25 @@
   transition: color 0.2s ease;
 }
 
-#cross-btn:hover {
+.cross-btn:hover {
   color: #ff4b4b;
 }
 
 /* Form styling */
-#department-form form {
+.department-form form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-#department-form label {
+.department-form label {
   font-weight: 600;
   color: #444;
   margin-bottom: -7px;
 }
 
-#department-form input,
-#department-form select {
+.department-form input,
+.department-form select {
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -84,13 +83,13 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-#department-form input:focus,
-#department-form select:focus {
+.department-form input:focus,
+.department-form select:focus {
   border-color: #00bcd4;
   box-shadow: 0 0 4px rgba(0, 188, 212, 0.3);
 }
 
-#department-form button[type="submit"] {
+.department-form button[type="submit"] {
   background-color: #00bcd4;
   color: #fff;
   border: none;
@@ -102,7 +101,7 @@
   transition: background-color 0.25s ease, transform 0.2s;
 }
 
-#department-form button[type="submit"]:hover {
+.department-form button[type="submit"]:hover {
   background-color: #0097a7;
   transform: translateY(-2px);
 }
