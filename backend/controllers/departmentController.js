@@ -16,9 +16,9 @@ export const addDepartment = async (req, res) => {
 
 export const deleteDepartment = async (req, res) => {
     try {
-        const { id } = req.body;
+        const id = req.query.id;
         const department = await departmentModel.deleteOne({ _id: id });
-        res.status(200).json({ message: "department deleted successfully", success: true });
+        res.redirect("/admin/navigateDepartments");
 
     } catch (err) {
         console.log(err);
@@ -26,17 +26,16 @@ export const deleteDepartment = async (req, res) => {
     }
 }
 
-export const editDepartment=async(req,res)=>{
-    try{
-        const department=await departmentModel.findById(req.body.id);
-        department.name=req.body.name;
-        department.type=req.body.type;
-        department.address=req.body.address;
+export const editDepartment = async (req, res) => {
+    try {
+        const department = await departmentModel.findById(req.body.id);
+        department.name = req.body.name;
+        department.type = req.body.type;
+        department.address = req.body.address;
         department.save();
         res.redirect("/admin/navigateDepartments");
-        // res.send(500);
-    }catch(err){
+    } catch (err) {
         console.log(err);
-        res.status(500).json({error:err});
+        res.status(500).json({ error: err });
     }
 }

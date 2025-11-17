@@ -1,0 +1,120 @@
+/* ===============================
+   POPUP OVERLAY
+==================================*/
+.edit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.edit-overlay.hidden {
+  display: none;
+}
+
+/* ===============================
+   POPUP BOX
+==================================*/
+.edit-popup {
+  width: 600px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   POPUP HEADER
+==================================*/
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  background: #f1f1f1;
+}
+
+/* ===============================
+   FORM FIELDS
+==================================*/
+.popup-form .row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.popup-form .form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-form input,
+.popup-form select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafafa;
+}
+
+.popup-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4a90e2;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #357ABD;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .edit-popup {
+    width: 92%;
+  }
+
+  .popup-form .row {
+    flex-direction: column;
+  }
+}

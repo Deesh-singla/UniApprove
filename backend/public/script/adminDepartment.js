@@ -1,5 +1,4 @@
 const addBtn = document.getElementById("add-department");
-// const editBtn = document.getElementById("edit-department")
 const formContainer = document.getElementById("department-form");
 const editformContainer = document.getElementById("edit-department-form");
 const crossBtn = document.getElementById("cross-btn");
@@ -13,20 +12,6 @@ addBtn.addEventListener("click", () => {
 crossBtn.addEventListener("click", () => {
     formContainer.style.visibility = "hidden";
 });
-
-async function handleDelete(departmentId) {
-    const res = await fetch("/department/deleteDepartment", {
-        method: "post",
-        headers: {
-            "content-type": "Application/json"
-        },
-        body: JSON.stringify({ id: departmentId })
-    })
-    const a = await res.json();
-    if (a.success) {
-        document.getElementById(departmentId).remove();
-    }
-}
 
 editCrossBtn.addEventListener("click", () => {
     editformContainer.style.visibility = "hidden"
@@ -45,5 +30,4 @@ export function openEditForm(id, name, type, address) {
 }
 
 window.openEditForm = openEditForm;
-window.handleDelete = handleDelete;
 

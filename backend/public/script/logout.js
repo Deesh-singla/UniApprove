@@ -1,4 +1,6 @@
-export default async function logout(e) {
+const logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener("click", logout);
+async function logout(e) {
     e.preventDefault();
     try {
         const response = await fetch("/auth/logout", {

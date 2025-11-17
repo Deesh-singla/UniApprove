@@ -5,7 +5,7 @@ const departmentRouter = express.Router();
 
 departmentRouter.post("/addDepartment", addDepartment)
 
-departmentRouter.post("/deleteDepartment", deleteDepartment);
+departmentRouter.get("/deleteDepartment", deleteDepartment);
 
 departmentRouter.post("/editDepartment", editDepartment)
 

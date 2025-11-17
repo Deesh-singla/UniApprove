@@ -7,6 +7,7 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/css/adminDashboard.css">
     <link rel="stylesheet" href="/css/adminDepartments.css">
+    <link rel="stylesheet" href="/css/pagination.css">
 </head>
 
 <body>
@@ -88,7 +89,7 @@
                                         <td>
                                             <button
                                                 onclick="openEditForm('<%= dep._id %>', '<%= dep.name %>', '<%= dep.type %>', '<%= dep.address %>')">Edit</button>
-                                            <button onclick="handleDelete('<%= dep._id %>')">Delete</button>
+                                            <a href="/department/deleteDepartment?id=<%= dep._id %>">Delete</a>
                                         </td>
                                     </tr>
                                     <% }) %>
@@ -116,6 +117,26 @@
                                 <button type="submit">Update</button>
                             </form>
                         </div>
+                        <div class="pagination">
+
+                            <!-- PREV BUTTON -->
+                            <a href="<%= currentpage > 1 ? '/admin/navigateDepartments?page=' + (currentpage-1) : '#' %>"
+                                class="page-btn <%= currentpage === 1 ? 'disabled' : '' %>">
+                                Prev
+                            </a>
+
+                            <span class="page-info">
+                                Page <%= currentpage %> of <%= totalPage %>
+                            </span>
+
+                            <!-- NEXT BUTTON -->
+                            <a href="<%= currentpage < totalPage ? '/admin/navigateDepartments?page=' + (currentpage+1) : '#' %>"
+                                class="page-btn <%= currentpage === totalPage ? 'disabled' : '' %>">
+                                Next
+                            </a>
+
+                        </div>
+
                         <% } else { %>
 
                             <div id="empty-message" style="font-weight:bold; margin-top:20px;">
@@ -138,5 +159,6 @@
 </body>
 
 <script type="module" src="/script/adminDepartment.js"></script>
+<script src="/script/logout.js"></script>
 
 </html>

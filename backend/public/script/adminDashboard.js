@@ -1,6 +1,3 @@
-import logout from "../logout.js";
-
-document.getElementById("logout-btn").addEventListener("click", logout);
 
 window.onload = async () => {
     try {
